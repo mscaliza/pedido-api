@@ -26,12 +26,6 @@ public class QPedido extends EntityPathBase<Pedido> {
 
     public final ListPath<PedidoItem, QPedidoItem> pedidoItem = this.<PedidoItem, QPedidoItem>createList("pedidoItem", PedidoItem.class, QPedidoItem.class, PathInits.DIRECT2);
 
-    public final NumberPath<Long> promocao_id = createNumber("promocao_id", Long.class);
-
-    public final NumberPath<Long> quantidadeTotal = createNumber("quantidadeTotal", Long.class);
-
-    public final NumberPath<java.math.BigDecimal> valor_promocional = createNumber("valor_promocional", java.math.BigDecimal.class);
-
     public QPedido(String variable) {
         super(Pedido.class, forVariable(variable));
     }
