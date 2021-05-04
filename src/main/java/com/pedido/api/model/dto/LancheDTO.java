@@ -17,12 +17,11 @@ public class LancheDTO implements Serializable {
     @ApiModelProperty(value ="Nome do lanche", hidden = true)
     private String descricao;
 
-    @ApiModelProperty(value = "Quantidade", required = true)
-    private Long quantidade;
+    @ApiModelProperty(value = "Quantidade", hidden = true)
+    private Long quantidade = 1L;
 
     @ApiModelProperty(value = "NORMAL ou PERSONALIZADO", required = true)
     private String tipo;
-
 
     private List<IngredienteDTO> ingredientes;
 

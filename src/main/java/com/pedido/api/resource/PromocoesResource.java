@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/promocoes")
+@RequestMapping("/v1/promocoes")
 public class PromocoesResource {
 
     @GetMapping
