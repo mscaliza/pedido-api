@@ -24,12 +24,9 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/alppinheiro/pedido-api.git
+git remote add origin 
 git push -u origin main
 
-#Não fica pedindo senha nos commit
-git config --global user.name "André Luiz Pinheiro"
-git config --global user.email andre.l.pinheiro@hotmail.com
 
 #Comandos basicos do git
 https://www.hostinger.com.br/tutoriais/comandos-basicos-de-git
