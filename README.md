@@ -16,4 +16,4 @@ O pedido deve ser feito fornecendo uma lista de lanches, sejam do tipo NORMAL ou
 
 O retorno será o número e o valor total levando em conta as promoções a que cada um se aplica.
 
-"# pedido-api" 
+
