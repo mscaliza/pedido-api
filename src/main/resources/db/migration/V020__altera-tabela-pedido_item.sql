@@ -1,0 +1,1 @@
+ALTER TABLE pedido_item DROP COLUMN promocao_id;

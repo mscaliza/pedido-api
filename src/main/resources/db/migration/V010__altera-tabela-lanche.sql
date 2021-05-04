@@ -1,0 +1,1 @@
+ALTER TABLE lanche ADD COLUMN tipo varchar(20) NULL;

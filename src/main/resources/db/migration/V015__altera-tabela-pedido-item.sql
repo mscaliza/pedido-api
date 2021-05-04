@@ -1,0 +1,1 @@
+ALTER TABLE pedido_item ALTER COLUMN ingrediente_id DROP NOT NULL;

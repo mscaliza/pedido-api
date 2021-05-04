@@ -1,0 +1,1 @@
+ALTER TABLE pedido_item ADD COLUMN valor_promocional numeric(10,2);

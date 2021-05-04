@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Lanche</title>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<h1>Lanche</h1>
+<h3><a href="/listarlanches" class="waves-effect waves-light btn"><i class="material-icons left">arrow_back</i>Voltar</a></h3>
+  <div th:each="lanche : ${lanche}">
+    <div class="row">
+      <p><span th:text="${lanche.descricao}"></span></p>
+    </div>
+    <div class="container" th:each="ing : ${lancheIngredientes}">
+      <div class="row">
+          <p><strong><span th:text="${ing.ingrediente.descricao}"></span> -></strong> <span th:text="${#numbers.formatCurrency(ing.ingrediente.valor)}"></span></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

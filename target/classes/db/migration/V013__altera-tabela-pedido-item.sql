@@ -1,0 +1,1 @@
+ALTER TABLE pedido_item ALTER COLUMN qtde_promocional TYPE numeric(10,2);

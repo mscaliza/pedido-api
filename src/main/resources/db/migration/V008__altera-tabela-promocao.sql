@@ -1,0 +1,2 @@
+ALTER TABLE promocao DROP COLUMN ativa;
+ALTER TABLE promocao ADD COLUMN ativa BOOLEAN;

@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  db:
+    image: "postgres:latest"
+    container_name: "container_db"
+    hostname: hostdb
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "pedidodb"
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    networks:
+      - pedido-network
+#  app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    container_name: "container-app"
+#    environment:
+#      SPRING_DATASOURCE_URL: "jdbc:postgresql://hostdb:5432/pedidodb"
+#      SPRING_DATASOURCE_USERNAME: "postgres"
+#      SPRING_DATASOURCE_PASSWORD: "postgres"
+#    expose:
+#      - 8080
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#      - db
+#    restart: unless-stopped
+#    networks:
+#      - pedido-network
+
+networks:
+  pedido-network:
+    driver: bridge
