@@ -7,13 +7,14 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @ApiModel
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Ingrediente {
+public class Ingrediente implements Serializable {
 
     @ApiModelProperty(example = "1")
     @EqualsAndHashCode.Include
