@@ -6,6 +6,8 @@ import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -63,7 +65,7 @@ public class SpringFoxConfig implements WebMvcConfigurer {
                 .title("Pedido API")
                 .description("API desenvolvida para solicitação de pedidos")
                 .version("1")
-                .contact(new Contact("Mariana Scaliza", "https://www.pedido-api.com", "mariana.scalica@gmail.com"))
+                .contact(new Contact("Mariana Scaliza", "https://www.pedido-api.com", "mariana.scaliza@gmail.com"))
                 .build();
     }
 
@@ -98,5 +100,13 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+    @Controller
+    public class IndexController {
+        @RequestMapping("/")
+        public String index() {
+            return "redirect:swagger-ui.html";
+        }
     }
 }

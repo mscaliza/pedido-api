@@ -32,30 +32,6 @@ public class LanchesController {
     @RequestMapping(value = "/cadastrarlanche", method = RequestMethod.POST)
     public String cadastrarLanche(Lanche lanche) {
         
-        /* List<Lanche> lista = null;
-        
-        Lanche lanche1 = new Lanche();
-        lanche1.setId(1L);
-        lanche1.setTipo(TipoLanche.NORMAL);
-
-        Lanche lanche2 = new Lanche();
-        lanche2.setId(2L);
-        lanche2.setTipo(TipoLanche.NORMAL);
-        
-        lista.add(lanche1);
-        lista.add(lanche2);
-
-       for (int index = 0; index < lista.size(); index++) {
-            // Get String at index;
-            Lanche lanchej = lista.get(index);
-            lanchej.setLancheIngredientes(lancheIngredienteRepository.findByLancheIdEIngredienteId(lanchej.getId()));
-        }
-
-        for (Lanche lanchej : lista) {
-            lanchej.setLancheIngredientes(lancheIngredienteRepository.findBylanche_id(lanchej.getId()));
-        }
-*/
-
         lancheRepository.save(lanche);
         return "redirect:/listarlanches";
     }
