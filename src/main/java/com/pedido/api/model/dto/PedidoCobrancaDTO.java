@@ -13,6 +13,7 @@ public class PedidoCobrancaDTO implements Serializable {
     private OffsetDateTime data;
     private List<LancheDTO> lanches;
     private BigDecimal valor;
-    private BigDecimal valorPromocional;
     private BigDecimal descontoPromocional;
+    private BigDecimal valorFinal;
+
 }

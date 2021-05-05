@@ -116,18 +116,21 @@ public class PedidoService {
                     promocao.setPromocao(promocaoRepository.getById(p.getPromocaoId()).getDescricao());
                     lancheDTO.addPromocao(promocao);
                 });
-
+                lancheDTO.setValorFinal(lancheDTO.getValorPromocional());
             } else {
                 lancheDTO.setValorPromocional(BigDecimal.valueOf(0));
+                lancheDTO.setValorFinal(lancheDTO.getValor());
             }
-
 
             lanches.add(lancheDTO);
         });
         pedidoCobrancaDTO.setLanches(lanches);
         pedidoCobrancaDTO.setValor(BigDecimal.valueOf(pedidoCobrancaDTO.getLanches().stream().mapToDouble(pi -> pi.getValor().doubleValue()).sum()).setScale(2, RoundingMode.HALF_UP));
-        pedidoCobrancaDTO.setValorPromocional(BigDecimal.valueOf(pedidoCobrancaDTO.getLanches().stream().mapToDouble(pi -> pi.getValorPromocional().doubleValue()).sum()).setScale(2, RoundingMode.HALF_UP));
-        pedidoCobrancaDTO.setDescontoPromocional(pedidoCobrancaDTO.getValorPromocional().compareTo(BigDecimal.valueOf(0)) == 0 ? BigDecimal.valueOf(0) : pedidoCobrancaDTO.getValor().subtract(pedidoCobrancaDTO.getValorPromocional()).setScale(2, RoundingMode.HALF_UP));
+        pedidoCobrancaDTO.setValorFinal(BigDecimal.valueOf(pedidoCobrancaDTO.getLanches().stream().mapToDouble(pi ->
+                (pi.getValorPromocional().doubleValue() == 0) ? pi.getValor().doubleValue() : pi.getValorPromocional().doubleValue()
+        ).sum()).setScale(2, RoundingMode.HALF_UP));
+        pedidoCobrancaDTO.setDescontoPromocional(pedidoCobrancaDTO.getValorFinal().compareTo(BigDecimal.valueOf(0)) == 0 ? BigDecimal.valueOf(0) : pedidoCobrancaDTO.getValor().subtract(pedidoCobrancaDTO.getValorFinal()).setScale(2, RoundingMode.HALF_UP));
+
         return pedidoCobrancaDTO;
     }
 
