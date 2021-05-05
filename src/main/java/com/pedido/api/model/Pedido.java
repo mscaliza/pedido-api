@@ -1,5 +1,6 @@
 package com.pedido.api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedido.api.model.dto.request.RequestEnviarPedido;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,6 +29,7 @@ public class Pedido implements Serializable {
     @ApiModelProperty(example = "2019-12-01T20:34:04Z")
     @CreationTimestamp
     @Column(columnDefinition = "timestamp")
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     private OffsetDateTime data;
 
     @OneToMany(mappedBy = "pedido_id")

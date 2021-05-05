@@ -34,6 +34,9 @@ public class LancheDTO implements Serializable {
     @ApiModelProperty(value ="Valor promocional", hidden = true)
     private BigDecimal valorPromocional;
 
+    @ApiModelProperty(value ="Valor final", hidden = true)
+    private BigDecimal valorFinal;
+
     public void addPromocao(PromocaoDTO promocao){
         this.promocao.add(promocao);
     }
