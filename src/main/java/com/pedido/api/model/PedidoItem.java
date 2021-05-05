@@ -21,9 +21,7 @@ public class PedidoItem {
 
     private Long lanche_id;
 
-
-
-    @OneToMany(mappedBy = "pedidoItemId")
+    @OneToMany(mappedBy = "pedidoItemId", fetch = FetchType.LAZY)
     private List<ItemIngrediente> itemIngredientes = new ArrayList<>();
 
     @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -33,7 +31,7 @@ public class PedidoItem {
     @Transient
     private List<Promocao> promocoes;
 
-    @OneToMany(mappedBy = "pedidoItemId")
+    @OneToMany(mappedBy = "pedidoItemId", fetch = FetchType.LAZY)
     private List<PedidoItemPromocao> itemPromocoes = new ArrayList<>();
 
     public void addItemIngredientes(ItemIngrediente item){

@@ -25,6 +25,8 @@ public class PedidoItemPromocao {
     @JoinColumn(name="promocao_id", nullable=false, insertable=false, updatable=false)
     private Promocao promocao;
 
+    public PedidoItemPromocao() {}
+
     public PedidoItemPromocao(Long pedidoItemId, Long promocaoId) {
         this.pedidoItemId = pedidoItemId;
         this.promocaoId = promocaoId;

@@ -4,12 +4,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class ItemIngrediente {
+public class ItemIngrediente implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +42,8 @@ public class ItemIngrediente {
     @ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name="ingrediente_id", nullable=false, insertable=false, updatable=false)
     private Ingrediente ingrediente;
+
+    public ItemIngrediente() {}
 
     public ItemIngrediente(Long ingrediente_id, String descricao, Long quantidade){
         this.ingrediente_id = ingrediente_id;
